@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block x %}
+<div class="fs-2 text-center">News <b class="text-mycolor">
+<i class="fa-solid fa-location-dot"></i></b>
+</div>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <div class="row">
+            {% for i in ndata %}
+        <div class="card my-1">
+            <div class="row">
+            <div class="col-sm-12">
+                <img src="/{{i.npic}}" class="img-thumbnail w-100 mt-2" />
+            </div>
+                <div class="card-body ps-2">
+                    <h5>{{i.ntitle}}</h5>
+                    <b>{{i.nhead}}</b><br/><br/>
+                    <p class="card-title">{{i.ndes | safe}}</p>
+                    <span class="btn btn-outline-primary btn-sm">{{i.category | safe}}</span>
+                    <span class="btn btn-outline-primary btn-sm">{{i.ncity}}</span><br/><br/>
+                    <div class="float-end text-muted">
+                    <b><i class="fa-solid fa-calendar-days"></i> Date : </b>{{i.ndate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+{% endblock %}

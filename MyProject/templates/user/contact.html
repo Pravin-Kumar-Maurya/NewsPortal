@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block x %}
+<style>
+    .cicon{
+    font-size:20px;
+    border-radius:50%;
+    color:white;
+    padding:6px;
+    }
+</style>
+<div class="fs-2 text-center mb-2"><u>Contact</u><b class="text-mycolor"> Us
+<i class="fa-solid fa-address-card"></i></b>
+</div>
+
+<div class="row ">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-5 frm pt-3 px-5 bg-white">
+        <div class="fs-3 pb-3 mx-5">Send Your <b class="text-mycolor">Message</b></div>
+        {% if msg %}
+        <div class="alert alert-success mx-4">
+           Your data saved successfully.
+        </div>
+        {% endif %}
+        <form class="mx-5" method="post">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <i class="input-group-text bg-mycolor text-light"><i class="fa-solid fa-user"></i></i>
+                <input type="text" name="name" required class="form-control" placeholder="Name..."/>
+            </div>
+            <div class="input-group mb-3">
+                <i class="input-group-text bg-mycolor text-light"><i class="fa-solid fa-envelope"></i></i>
+                <input type="email" name="email" required class="form-control" placeholder="Email..."/>
+            </div>
+            <div class="input-group mb-3">
+                <i class="input-group-text bg-mycolor text-light"><i class="fa-solid fa-phone"></i></i>
+                <input type="number" name="mob" required class="form-control" placeholder="Mobile No..."/>
+            </div>
+            <div class="input-group mb-3">
+                <i class="input-group-text bg-mycolor text-light"><i class="fa-solid fa-message"></i></i>
+                <textarea class="form-control" name="msg" required placeholder="message"></textarea>
+            </div>
+            <input type="submit" class="form-control bg-mycolor" value="Save" />
+        </form>
+
+    </div>
+    <div class="col-sm-5 px-5 pt-3 bg-white ">
+        <div class="fs-3 pb-2 ">Contact <b class="text-mycolor">Info</b></div>
+        <i class="fa-solid fa-location-dot bg-mycolor cicon"></i><b class="text-mycolor fs-4"> Address </b>
+        <div class="mx-4 " style="font-size:18px;">Vill-Bhohar, Post-Amarpatti, Thana-Cholapur, Dist-Varanasi,
+            State-Uttar Pradesh, Pincode-221101</div><br/>
+        <i class="fa-solid fa-phone bg-mycolor cicon"></i><b class="text-mycolor fs-4"> Call Us </b>
+        <div class="mx-4 " style="font-size:18px;">+918960579254<br/>+919335602963</div><br/>
+        <i class="fa-solid fa-envelope bg-mycolor cicon "></i><b class="text-mycolor fs-4"> Mail Us </b>
+        <div class="mx-4 " style="font-size:18px;"> pravinkumarmaurya626@gmail.com<br/>
+            pravinmaurya626@gmail.com</div><br/>
+    </div>
+    <div class="col-sm-1"></div>
+
+</div>
+<div class=" container row map my-4 mx-auto">
+    <div class="col-sm-12 m-0">
+        <iframe class="w-100 m-0" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1844642.6987329621!2d79.89206259314419!3d25.444355208416535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1661966715255!5m2!1sen!2sin" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+{% endblock %}

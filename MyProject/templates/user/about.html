@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block x %}
+<div class="fs-2 text-center"><u>About</u> <b class="text-mycolor">Us
+<i class="fa-solid fa-circle-info"></i></b>
+</div>
+<div class="row my-2">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-5 bg-white p-5" style="text-align:justify;">
+        <div class="fs-4">
+            Welcome to the <b>Breaking News India</b> , just there is some little word to describe our work scope.
+        </div><br/>
+        <p class="fs-5 p-2" style="text-align:justify font-family:impact;">
+            Breaking News India is editorially independent in its reporting. We espouse the values of ethical journalism, to ensure the free exchange of information that is truthful, fair and thorough. Learn more about our editorial guidelines
+        </p>
+    </div>
+    <div class="col-sm-5 bg-white p-5">
+        <img src="{% static 'images/nw3.jpg' %}" class="w-100 my-2"/>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+<div class="fs-2 text-center"><u>We</u> <b class="text-mycolor">Belive</b></div>
+<div class="row my-2" >
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <div class="row bg-white fs-5" style="min-height:300px; text-align:justify;">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5 py-2 px-4">
+                <div class="fs-2 text-center"><u>Our</u> <b class="text-mycolor">Contents</b></div>
+                <p class="fs-5 py-2">It’s important to tell the right story in the right way. At News Medical, we’re well versed in translating complex, scientific information into easily readable, shareable content.
+
+We share frequent updates via an ever-expanding news feed. We develop detailed health articles that delve into medical and life sciences topics. </p>
+            </div>
+            <div class="col-sm-5 py-2 px-4">
+                <div class="fs-2 text-center"><u>Our</u> <b class="text-mycolor">Mission</b></div>
+                <p class="fs-5 py-2">Medindia's mission is to empower consumers, doctors and healthcare professionals globally with authentic, accurate, timely and personalized health information and provide them tools to allow for better management of health, provide better care to patients, and lead healthier lives.</p>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+
+{% endblock %}

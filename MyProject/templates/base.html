@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'css/all.css' %}" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <title>
+        {% block title %}
+
+        {% endblock %}
+    </title>
+    <style>
+        .bg-mycolor{
+        background:#e53935;
+        }
+        .text-mycolor{
+        color:#e53935;
+        }
+        .ufooter{
+        min-height:200px;
+        }
+        .bfooter{
+        min-height:50px;
+        line-height:50px;
+        border-top:1px solid white;
+        }
+        .bfooter a{
+        text-decoration:none;
+        }
+        .wrapper{
+        max-height:80px;
+        background:white;
+        display:flex;
+        overflow-x:auto;
+        float:left;
+        }
+        .wrapper::-webkit-scrollbar{
+        width:0px;
+        }
+        .wrapper .item{
+        min-width:150px;
+        height:100%;
+        line-height:80px;
+        margin:0px 1px;
+        }
+        ul li.active a{
+        color:#e53935;
+        border-bottom:2px solid #e53935;
+        }
+</style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="sticky-top">
+    <div class="row header-2 bg-white border-bottom border-1">
+        <div class="col-sm-12 menu">
+            <!---   Start Menu    ------>
+            <nav class="navbar navbar-expand-lg">
+  <div class="container-fluid bg-white">
+      <div class="logo text-center fs-4 me-5">
+          <b class="text-mycolor">Samachar India</b>
+        </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+        <li class="nav-item {% if request.path == '/' %} active {% endif %} ">
+          <a class="nav-link mn px-3" aria-current="page" href="/">
+              <i class="fa-solid fa-house "></i> Home</a>
+        </li>
+          <li class="nav-item {% if request.path == '/user/news/' %} active {% endif %} ">
+          <a class="nav-link mn px-3" href="/user/news/">
+              <i class="fa-solid fa-earth-oceania"></i> News</a>
+        </li>
+        <li class="nav-item {% if request.path == '/user/gallery/' %} active {% endif %} ">
+          <a class="nav-link mn px-3" href="/user/gallery/">
+              <i class="fa-solid fa-images"></i> Images </a>
+        </li>
+        <li class="nav-item  {% if request.path == '/user/video/' %} active {% endif %}">
+          <a class="nav-link mn px-3" href="/user/video/">
+              <i class="fa-solid fa-photo-film"></i> Videos</a>
+        </li>
+          <li class="nav-item {% if request.path == '/user/about/' %} active {% endif %} ">
+          <a class="nav-link mn px-3" href="/user/about/">
+              <i class="fa-solid fa-circle-info"></i> About Us</a>
+        </li>
+          <li class="nav-item {% if request.path == '/user/contact/' %} active {% endif %} ">
+          <a class="nav-link mn px-3" href="/user/contact/">
+              <i class="fa-solid fa-address-card"></i> Contact Us</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link mn px-3" href="/admin/">
+              <i class="fa-solid fa-key pe-2 "></i> Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+            <!---   End Menu    ------>
+        </div>
+        <!--    start category --->
+        <div class="wrapper" style="margin-left:-7px;">
+    {% for x in cat %}
+
+<div class="item">
+            <hr style=" margin-top:-0px; margin-left:-2px;"/>
+        <ul class="list-group" style="margin-top:-15px; margin-bottom:-15px;" >
+            <li class="list-group-item border-0 px-1 " style=" text-align:center;">
+                <!---   Start Card   ----->
+                <a href="/user/news?catid={{x.id}}" style="text-decoration:none;">
+  <div class="row">
+      <div class="text-muted" style="float:left;">
+        <h6 class="mx-auto fs-5">{{x.category}}</h6>
+      </div>
+  </div>
+                </a>
+            </li>
+        </ul>
+</div>
+                <!---   End Card   ----->
+    {% endfor %}
+</div>
+        <!--    End category  --->
+        <!--    start city --->
+        <div class="wrapper d-md-none" style="margin-left:-7px;">
+    {% for x in ct %}
+
+<div class="item">
+            <hr style=" margin-top:-0px; margin-left:-2px;"/>
+        <ul class="list-group" style="margin-top:-15px; margin-bottom:-15px;" >
+            <li class="list-group-item border-0 px-1 " style=" text-align:center;">
+                <!---   Start Card   ----->
+                <a href="/user/news?catid={{x.id}}" style="text-decoration:none;">
+  <div class="row">
+      <div class="text-muted" style="float:left;">
+        <h6 class="mx-auto fs-5">{{x.ncity}}</h6>
+      </div>
+  </div>
+                </a>
+            </li>
+        </ul>
+</div>
+                <!---   End Card   ----->
+    {% endfor %}
+</div>
+        <!--    End city  --->
+    </div>
+    </div>
+    <div class="row content bg-light" style="min-height:500px;">
+        <div class="col-sm-12 py-2">
+            {% block x %}
+
+            {% endblock %}
+        </div>
+    </div>
+    <div class="row ufooter bg-dark pt-2">
+        <div class="col-sm-3 px-5 text-white">
+            <a href="#" style="color:white; text-decoration:none;">
+                <b class="fs-2 text-mycolor">Samachar India</b>
+            </a><br/>
+            <b class="fs-4 border-bottom border-white border-2 pb-1">Stay Connected </b><br/><br/>
+            <a href="#"><i class="fa-brands fa-facebook fs-4 text-white"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp m-1 fs-4 text-white"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter m-1 fs-4 text-white"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram m-1 fs-4 text-white"></i></a>
+        </div>
+        <div class="col-sm-3 px-5 text-white">
+            <a href="#" style="color:white; text-decoration:none;">News in English</a><br/>
+            <a href="#" style="color:white; text-decoration:none;">Health</a><br/>
+            <a href="#" style="color:white; text-decoration:none;">Science</a><br/>
+            <a href="#" style="color:white; text-decoration:none;">Politics</a><br/>
+            <a href="#" style="color:white; text-decoration:none;">Education</a><br/>
+            <a href="#" style="color:white; text-decoration:none;">Sports</a><br/>
+        </div>
+        <div class="col-sm-3 px-5 text-white">
+            <a href="#" style="color:white; text-decoration:none;">News in Hindi</a><br/>
+            <a href="#" style="color:white; text-decoration:none;">About Us</a><br/>
+            <a href="#" style="color:white; text-decoration:none;">Advertise With Us</a><br/>
+            <a href="#" style="color:white; text-decoration:none;">Gallery</a><br/>
+            <a href="#" style="color:white; text-decoration:none;">Login</a><br/>
+            <a href="#" style="color:white; text-decoration:none;">Submit Your News</a><br/>
+        </div>
+        <div class="col-sm-3 px-2 text-white">
+            <a href="#" style="text-decoration:none; color:white; text-align:center; font-size:20px;"><b>Contact Us</b></a><br/>
+            <i class="fa-solid fa-house"></i> Bhohar, Amarpatti, Cholapur, Varanasi, Uttar Pradesh, 221101 <br/>
+            <i class="fa-solid fa-phone"></i> +918960579254<br/>
+            <i class="fa-solid fa-phone"></i> +919335602963<br/>
+            <i class="fa-solid fa-envelope"></i> pravinkumarmaurya626@gmail.com<br/>
+
+        </div>
+        <!--<div class="col-sm-1"></div>-->
+    </div>
+    <div class="row bfooter bg-dark text-white p-1 pb-2">
+        <div class="col-sm-6 text-center">
+            <b>Developed By : </b>
+            <a href="#" class="text-white">Pravin Kumar Maurya</a>
+        </div>
+        <div class="col-sm-6">
+            <b class="fs-5 pt-2">&copy;</b> Copyright :
+            <a href="https://www.techpile.in/" target="_blanck" class="text-white">
+                Techpile Technology Pvt. Ltd. Lucknow</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
